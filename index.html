@@ -28,7 +28,11 @@
 
       <button type="submit">Add Task</button>
     </form>
-
+    <div class="gql-log-box">
+      <h3>GraphQL Operation Log</h3>
+      <pre id="gqlLog" style="background-color:#f9f9ff; padding:10px; border:1px solid #ccc; border-radius:8px;"></pre>
+    </div>
+    
     <div class="filters">
       <label for="statusFilter">Filter by Status</label>
       <select id="statusFilter">
@@ -45,7 +49,9 @@
         <option value="LOW">Low</option>
       </select>
     </div>
-
+   
+    <pre id="gqlResult"></pre>
+    
     <div class="stats">
       <p>🔥 Streak: <span id="streakCount">0</span> days</p>
     </div>

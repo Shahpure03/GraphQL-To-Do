@@ -1,42 +1,58 @@
-const { gql } = require('apollo-server-express');
+// schema.js
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  enum Priority {
-    HIGH
-    MEDIUM
-    LOW
-  }
-
   type Todo {
     id: ID!
     task: String!
     completed: Boolean!
-    priority: Priority!
-  }
-
-  type Task {
-    id: ID!
-    title: String!
-    description: String
-    completed: Boolean!
-    createdAt: String!
-    updatedAt: String!
-    streak: Int
-    points: Int
+    priority: String!
   }
 
   type Query {
-    getTodos(status: Boolean, priority: Priority): [Todo!]!
-    getTasks(completed: Boolean): [Task!]!
+    getTodos: [Todo]
   }
 
   type Mutation {
-    addTodo(task: String!, priority: Priority!): Todo!
-    deleteTodo(id: ID!): Boolean!
-    toggleTodo(id: ID!): Todo!
-    addTask(title: String!, description: String, completed: Boolean!): Task!
-    deleteTask(id: ID!): Boolean!
+    addTodo(task: String!, priority: String!): Todo
+    deleteTodo(id: ID!): ID
+    toggleTodo(id: ID!): Todo
   }
 `;
 
-module.exports = typeDefs;
+const todos = [];
+
+const resolvers = {
+  Query: {
+    getTodos: () => todos
+  },
+  Mutation: {
+    addTodo: (_, { task, priority }) => {
+      const newTodo = {
+        id: Date.now().toString(),
+        task,
+        priority,
+        completed: false
+      };
+      todos.push(newTodo);
+      return newTodo;
+    },
+    deleteTodo: (_, { id }) => {
+      const index = todos.findIndex(todo => todo.id === id);
+      if (index > -1) {
+        todos.splice(index, 1);
+        return id;
+      }
+      return null;
+    },
+    toggleTodo: (_, { id }) => {
+      const todo = todos.find(t => t.id === id);
+      if (todo) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    }
+  }
+};
+
+module.exports = { typeDefs, resolvers };
