@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tangled To-Do</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Tangled 🧵 To-Do</h1>
+    <form id="todoForm">
+      <div class="input-group">
+        <input type="text" id="taskInput" placeholder="Enter task..." required />
+        <select id="priorityInput">
+          <option value="HIGH">High</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="LOW">Low</option>
+        </select>
+        <button type="submit" class="add-btn">Add Task</button>
+      </div>
+    </form>
+
+    <div class="filters">
+      <select id="statusFilter">
+        <option value="">All Status</option>
+        <option value="true">Completed</option>
+        <option value="false">Incomplete</option>
+      </select>
+
+      <select id="priorityFilter">
+        <option value="">All Priorities</option>
+        <option value="HIGH">High</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="LOW">Low</option>
+      </select>
+    </div>
+
+    <ul id="todoList"></ul>
+
+    <div id="completionMessage">
+      <p>🎉 Woohoo! Rapunzel’s hair is untangled!</p>
+      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDM4aXdpb2poY2dxNzRkbGlzZ2hyY29vYWpjYTN6d2Y3MG02d3J1NyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qcFVaWiY1oKc0tQOdK/giphy.gif" alt="Rapunzel Happy" class="rapunzel-gif" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
