@@ -1,9 +1,14 @@
+/* Global styles */
 body {
-  background: #f3f0fa;
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f3f0fa;
+  overflow-x: hidden;
+  position: relative;
 }
+
+/* Video Background Styling */
 .video-background {
   position: fixed;
   top: 0;
@@ -11,47 +16,78 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: -1;
+  z-index: -2;
 }
 
 #bg-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(10px);
-}
-#gqlQuery {
-  font-family: monospace;
-  padding: 10px;
-  background: #f5f5f5;
-  border: 1px solid #ccc;
-  color: #333;
-  width: 90%;
-  max-width: 600px;
+  filter: blur(8px) brightness(0.6);
 }
 
-#gqlResult {
-  background-color: #fdf6e3;
-  padding: 10px;
-  border: 1px dashed #999;
-  margin-top: 10px;
-  white-space: pre-wrap;
+/* Optional overlay to soften video effect */
+.video-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(247, 236, 236, 0.788); /* subtle dark overlay */
+  z-index: -1;
 }
 
-.container {
+/* Container for everything */
+.todo-container {
   max-width: 600px;
   margin: 40px auto;
-  padding: 20px;
-  background: #ffffffc0;
+  padding: 25px 30px;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 28px rgba(129, 127, 127, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
-h1 {
-  text-align: center;
-  color: #6d4baf;
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4b0082;
+}
+
+/* Streak Display */
+#streakDisplay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, #ffe5b4, #fddbb0);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 223, 100, 0.6);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #6b3e26;
+  z-index: 10;
+  animation: glowPulse 3s infinite ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#streakCount {
+  color: #ff8c00;
+  font-size: 1.5rem;
+}
+
+/* Form Inputs */
 form,
 .filters,
 .stats {
@@ -61,7 +97,7 @@ form,
 }
 
 label {
-  margin: 6px 0 2px;
+  margin: 6px 0 4px;
   font-weight: bold;
   color: #4b2e83;
 }
@@ -73,6 +109,7 @@ button {
   border-radius: 8px;
   border: 1px solid #dcdcdc;
   font-size: 1rem;
+  background-color: #fefefe;
 }
 
 button {
@@ -88,6 +125,7 @@ button:hover {
   transform: scale(1.03);
 }
 
+/* To-Do Items */
 .todo-item {
   background: #f7f3ff;
   border: 1px solid #e2d7ff;
@@ -109,12 +147,7 @@ button:hover {
   color: gray;
 }
 
-.stats {
-  font-size: 1rem;
-  color: #4b2e83;
-  text-align: center;
-}
-
+/* Completion Message */
 #completionMessage {
   margin-top: 20px;
   text-align: center;
@@ -131,5 +164,32 @@ button:hover {
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* GraphQL Log Styling */
+.gql-log-box {
+  margin-top: 30px;
+  background: #fdf6e3;
+  border: 1px dashed #999;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  color: #333;
+}
+
+#gqlLog {
+  font-family: monospace;
+  margin-top: 10px;
+}
+
+/* Animation */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 223, 100, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 223, 100, 0.9);
   }
 }

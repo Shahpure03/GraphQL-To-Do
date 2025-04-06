@@ -1,7 +1,8 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const cors = require("cors");
-const { typeDefs, resolvers } = require("./schema");
+const typeDefs = require("./schema");
+const resolvers = require("./resolvers");
 
 async function startServer() {
   const app = express();
@@ -13,7 +14,7 @@ async function startServer() {
 
   const PORT = 4000;
   app.listen(PORT, () => {
-    console.log(`🚀 Server ready at http://localhost:4000/graphql}`);
+    console.log(`🚀 Server ready at Server ready at http://localhost:4000/graphql`);
   });
 }
 
