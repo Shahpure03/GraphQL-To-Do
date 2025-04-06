@@ -27,12 +27,15 @@ const typeDefs = gql`
 
   type Query {
     getTodos(status: Boolean, priority: Priority): [Todo!]!
+    getTasks(completed: Boolean): [Task!]!
   }
 
   type Mutation {
     addTodo(task: String!, priority: Priority!): Todo!
     deleteTodo(id: ID!): Boolean!
     toggleTodo(id: ID!): Todo!
+    addTask(title: String!, description: String, completed: Boolean!): Task!
+    deleteTask(id: ID!): Boolean!
   }
 `;
 

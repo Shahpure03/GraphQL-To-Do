@@ -1,6 +1,6 @@
 let todos = [];
 let streakCount = parseInt(localStorage.getItem("streakCount")) || 0;
-let lastCompletedDate = localStorage.getItem("lastCompletedDate");
+let lastCompletedDate = localStorage.getItem("lastCompletedDate") || new Date().toDateString();
 
 const taskInput = document.getElementById("taskInput");
 const priorityInput = document.getElementById("priorityInput");
