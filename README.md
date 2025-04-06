@@ -1,6 +1,6 @@
-# TANGLED TO-DO
+# TwistList TO-DO Tracker
 
-TANGLED TO-DO is a project written in **JavaScript** designed to help users manage their tasks efficiently. It provides a simple and intuitive interface for creating, updating, and tracking to-do items.
+TwistList TO-DO Tracker is a project written in **JavaScript** designed to help users manage their tasks efficiently. It provides a simple and intuitive interface for creating, updating, and tracking to-do items.
 
 ## Features
 
