@@ -1,109 +1,118 @@
-/* style.css */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #e6e6fa, #f0e6ff);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: #f3f0fa;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+#bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffffc0;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #6d4baf;
+}
+
+form,
+.filters,
+.stats {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 6px 0 2px;
+  font-weight: bold;
+  color: #4b2e83;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 10px;
+  background: #7f5fc6;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+.todo-item {
+  background: #f7f3ff;
+  border: 1px solid #e2d7ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-buttons button {
+  margin-left: 8px;
+  background: #b48dfc;
+}
+
+.todo-content span.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.stats {
+  font-size: 1rem;
+  color: #4b2e83;
+  text-align: center;
+}
+
+#completionMessage {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #5c3da7;
+  animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
   }
-  
-  .container {
-    background-color: #fdf4ff;
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 8px 16px rgba(137, 114, 185, 0.2);
-    width: 500px;
-    max-width: 90%;
-    text-align: center;
-    position: relative;
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #5e3b90;
-  }
-  
-  form,
-  .filters {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-  }
-  
-  input,
-  select,
-  button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    outline: none;
-  }
-  
-  input {
-    flex: 1 0 150px;
-  }
-  
-  button {
-    background-color: #b48add;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #9c6bcc;
-  }
-  
-  #todoList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .todo-item {
-    background-color: #ffffff;
-    border: 1px solid #e2d9f3;
-    padding: 10px 15px;
-    margin: 8px 0;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  }
-  
-  .todo-item span {
-    flex: 1;
-    text-align: left;
-  }
-  
-  .todo-item .done {
-    text-decoration: line-through;
-    color: #888;
-  }
-  
-  .todo-buttons {
-    display: flex;
-    gap: 8px;
-  }
-  
-  #completionMessage {
-    margin-top: 20px;
-    font-size: 1.1rem;
-    color: #7a4da1;
-    font-weight: bold;
-    animation: fadeIn 1s ease-in;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
+}

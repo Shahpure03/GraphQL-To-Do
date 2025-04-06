@@ -14,6 +14,17 @@ const typeDefs = gql`
     priority: Priority!
   }
 
+  type Task {
+    id: ID!
+    title: String!
+    description: String
+    completed: Boolean!
+    createdAt: String!
+    updatedAt: String!
+    streak: Int
+    points: Int
+  }
+
   type Query {
     getTodos(status: Boolean, priority: Priority): [Todo!]!
   }

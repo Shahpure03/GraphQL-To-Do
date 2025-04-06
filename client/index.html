@@ -3,45 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tangled To-Do</title>
+  <title>TwistList To-Do Tracker </title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="video-background">
+    <video autoplay muted loop id="bg-video">
+        <source src="../assets/bgvido.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="container">
-    <h1>Tangled 🧵 To-Do</h1>
+    <h1>TwistList To-Do Tracker</h1>
+
     <form id="todoForm">
-      <div class="input-group">
-        <input type="text" id="taskInput" placeholder="Enter task..." required />
-        <select id="priorityInput">
-          <option value="HIGH">High</option>
-          <option value="MEDIUM">Medium</option>
-          <option value="LOW">Low</option>
-        </select>
-        <button type="submit" class="add-btn">Add Task</button>
-      </div>
+      <label for="taskInput">Task</label>
+      <input type="text" id="taskInput" placeholder="Enter task..." required />
+
+      <label for="priorityInput">Priority</label>
+      <select id="priorityInput">
+        <option value="HIGH">High</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="LOW">Low</option>
+      </select>
+
+      <button type="submit">Add Task</button>
     </form>
 
     <div class="filters">
+      <label for="statusFilter">Filter by Status</label>
       <select id="statusFilter">
-        <option value="">All Status</option>
+        <option value="">All</option>
         <option value="true">Completed</option>
         <option value="false">Incomplete</option>
       </select>
 
+      <label for="priorityFilter">Filter by Priority</label>
       <select id="priorityFilter">
-        <option value="">All Priorities</option>
+        <option value="">All</option>
         <option value="HIGH">High</option>
         <option value="MEDIUM">Medium</option>
         <option value="LOW">Low</option>
       </select>
     </div>
 
+    <div class="stats">
+      <p>🔥 Streak: <span id="streakCount">0</span> days</p>
+    </div>
+
     <ul id="todoList"></ul>
 
-    <div id="completionMessage">
-      <p>🎉 Woohoo! Rapunzel’s hair is untangled!</p>
-      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDM4aXdpb2poY2dxNzRkbGlzZ2hyY29vYWpjYTN6d2Y3MG02d3J1NyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qcFVaWiY1oKc0tQOdK/giphy.gif" alt="Rapunzel Happy" class="rapunzel-gif" />
+    <div id="completionMessage" style="display: none;">
+      🎉 Woohoo! All taks completed!! Treat yourself!
     </div>
   </div>
 
